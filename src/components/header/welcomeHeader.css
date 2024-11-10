@@ -1,13 +1,14 @@
 .navbar {
-    background-color:#CAF0F8;
+    background-color:#FFB3C1;
     height: 70px;
     width: 100%;
-    border: solid #0077B6 0.5px;
+    border-bottom: dashed #FF4D6D 2px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     
 }
 
 .navbar .navbar-brand {
-    color: #0077B6;
+    color: #C9184A;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
     font-weight: bold;
@@ -20,11 +21,11 @@
 #login {
     position: absolute;
     left: 1220px;
-    top:15px;
+    top:17px;
     border-radius: 15%;
     color: white;
     padding:8px;
-    background-color: #0077B6;
+    background-color: #C9184A;
 }
 #register {
     position:absolute;
