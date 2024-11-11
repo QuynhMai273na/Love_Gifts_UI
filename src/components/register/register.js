@@ -22,6 +22,13 @@ const Register = () => {
     const navigate =  useNavigate()
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const { email, name, password, sex } = formData;
+        if (email==="" || name==="" || password==="" || sex==="") {
+            alert("Please enter all neccessary information");
+        return;
+        }
+
         try {
             const response= await fetch("http://localhost:5000/api/user", {
                 method:"POST",
@@ -30,9 +37,13 @@ const Register = () => {
                 },
                 body: JSON.stringify(formData)
             })
-            const data = await response.json(response);
-            navigate("/");
-            alert("Sign up successful ! Now you can Login to your account ");
+            if (response.ok) {
+                alert("Sign up successful! Now you can login to your account.");
+                navigate("/");
+            } else {
+                const errorData = await response.json();
+                alert(`Sign up failed: ${errorData.error}`);
+            }
         } catch (error){
                 console.error(error.message);
         }

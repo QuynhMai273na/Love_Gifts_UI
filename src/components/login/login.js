@@ -20,20 +20,7 @@ const Login = () => {
     }
     const navigate =  useNavigate();
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response= await fetch("http://localhost:5000/api/user", {
-                method:"POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData)
-            })
-            navigate("/");
-            alert("Successful registered !! Now you can Login to your account.");
-        } catch (error){
-                console.error(error.message);
-        }
+        
     }
     
     return (
