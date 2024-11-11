@@ -7,9 +7,7 @@ const Login = () => {
     const [formData, setFormData] = useState({
         
         email:"",
-        name:"",
-        password:"",
-        sex: ""
+        password:""
     });
     const handleInputChange = (event) => {
         const {name, value} = event.target;
