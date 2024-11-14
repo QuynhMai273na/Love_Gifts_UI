@@ -29,6 +29,12 @@ const Home = () => {
     const handleProfileClick = () => {
         navigate("/home/profile")
     }
+    const handleGiftClick = () => {
+        navigate("/home/gifts")
+    }
+    const handleTaskClick = () => {
+        navigate("/home/tasks")
+    }
     return (
         <>
             <div className="homepage">
@@ -44,8 +50,8 @@ const Home = () => {
                 <img src={boy} id="boy" width="300" height="300"/>
                 <img src={heart} id="heart" width="300" height="300"/>
                 <img src={girl} id="girl"  width="300" height="300"/>
-                <div id="findGift">Find Gifts</div>
-                <div id="findTask">Find Tasks</div>
+                <div id="findGift" onClick={handleGiftClick}>Find Gifts</div>
+                <div id="findTask" onClick={handleTaskClick}>Find Tasks</div>
             </div>
         </>
     );
