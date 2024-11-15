@@ -26,7 +26,7 @@ const Tasks = () => {
     return (
         <>
             <div className="allTasks">
-            <h2>Task List</h2>
+                <h1 id="task-label">Task List</h1>
             <div className="task-list">
                 {tasks.map((task) => (
                     <div className="task-item" key={task._id}>
