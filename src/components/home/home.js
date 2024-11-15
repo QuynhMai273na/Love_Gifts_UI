@@ -30,10 +30,10 @@ const Home = () => {
         navigate("/home/profile")
     }
     const handleGiftClick = () => {
-        navigate("/home/gifts")
+        navigate("/home/gift")
     }
     const handleTaskClick = () => {
-        navigate("/home/tasks")
+        navigate("/home/task")
     }
     return (
         <>

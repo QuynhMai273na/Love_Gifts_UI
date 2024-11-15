@@ -97,11 +97,12 @@
     height: 150px;
     object-fit: cover;
   }
-
+  
   .small-image {
     position: absolute;
     width: 30%; 
     height: auto;
-    right: 100px;
+    right: 10%;
+    bottom: 5%;
   }
   

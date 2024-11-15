@@ -1,0 +1,87 @@
+/* gift.css */
+
+/* Container style */
+.gift-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #FFF0F3;
+    color: #C9184A ;
+    ;
+  }
+  
+  /* Row style */
+  .gift-row {
+    margin: auto;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Column style */
+  .gift-col {
+    flex: 1 1 calc(25% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    max-width: calc(25% - 20px);
+  }
+  
+  /* Card style */
+  .gift-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  
+  .gift-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .gift-card img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 0px;
+    object-fit: cover;
+  }
+  
+  .gift-card-body {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .gift-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px;
+    color: #FF4D6D ;
+    ;
+
+  }
+  
+  .gift-card-text {
+    color: #888;
+  }
+  
+  /* Button style */
+.add-to-cart-btn {
+    background-color: #FF4D6D;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 0px;
+    justify-content: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #A4133C;
+  }

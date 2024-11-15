@@ -4,6 +4,7 @@ import Cart from "../components/cart/cart";
 import Task from "../components/task/task";
 import Home from "../components/home/home";
 import Profile from "../components/profile/profile";
+import Gift from "../components/gift/gitft";
 
 
 function HomePage() {
@@ -14,6 +15,7 @@ function HomePage() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/cart" element={<Cart></Cart>}></Route>
         <Route path="/task" element={<Task></Task>}></Route>
+        <Route path="/gift" element={<Gift></Gift>}></Route>
         <Route path="/profile" element={<Profile></Profile>}></Route>
       </Routes>
     </>
