@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Form, Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import "./tasks.css";
+import taskicon from "./taskicon.png";
 const Tasks = () => {
 
     const [tasks, setTasks] = useState([]);
@@ -27,6 +28,7 @@ const Tasks = () => {
         <>
             <div className="allTasks">
                 <h1 id="task-label">Task List</h1>
+                <img src={taskicon} id="task-icon" width="120" height="120"/>
             <div className="task-list">
                 {tasks.map((task) => (
                     <div className="task-item" key={task._id}>

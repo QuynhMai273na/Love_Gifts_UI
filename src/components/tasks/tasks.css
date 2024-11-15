@@ -1,7 +1,7 @@
 .allTasks {
     background-color: #FFF0F3;
     width: 100%;
-    height: 100vh;
+    height: fit-content;
     display: flex;
     justify-content: center;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -9,8 +9,15 @@
 }
 #task-label {
     position: relative;
-    top: 10px;
-    left: 400px;
+    top: 0px;
+    left: 280px;
+    color: #A4133C;
+    font-size: 50px;
+}
+#task-icon {
+    position:relative;
+    top: -3px;
+    left: 260px;
 }
 .task-item {
     margin: 5px;
@@ -21,16 +28,17 @@
     background-color: #fff;
     border-radius: 25px;
     height: 30px;
+    box-shadow: 5px 10px 15px rgba(7, 7, 7, 0.1);
 }
 .task-list {
-    margin-top: 100px;
+    margin-left: -300px;
+    margin-top: 120px;
     height: 80%;
     width: 800px;
 }
 .add-button {
     margin-left: auto; /* Đẩy nút Add sang phải */
     padding: 4px 8px;
-    background-color: #dc406c;
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -39,9 +47,9 @@
     height: 35px;
     width: 50px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+    background: linear-gradient(45deg, #8a0f32, #ee7899);
 }
 
 .add-button:hover {
-    background-color: #A4133C;
+    background: linear-gradient(45deg, #7c0626, #915465);
 }
