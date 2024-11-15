@@ -56,7 +56,7 @@ const Login = () => {
     
     return (
         <>
-            <div id="login-center-form" className="center-form">
+            <div id="login-center-form" className="center-form-loginregist">
                 <h1 id="Lable-login">Login</h1>
                 <Form id="form-login" onSubmit={handleLogin}>
                     <Form.Group controlId="formBasicEmailLogin">

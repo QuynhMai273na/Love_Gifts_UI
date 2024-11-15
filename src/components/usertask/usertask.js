@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Form, Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-const Task = () => {
+const UserTask = () => {
     
     return (
         <>
@@ -12,4 +12,4 @@ const Task = () => {
     );
 };
 
-export default Task;
+export default UserTask;
