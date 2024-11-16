@@ -49,3 +49,21 @@
 .complete-button:hover {
     background: linear-gradient(45deg, #067c29, #549166);
 }
+.complete-button:disabled {
+    background: linear-gradient(45deg, #7faa85, #cce4cd);
+    color:black;
+    cursor: not-allowed;  /* Thay đổi con trỏ khi nút bị disabled */
+}
+.usertaskPoint {
+    width: 140px;
+    height: 50px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(255, 250, 157);
+    position: absolute;
+    top:115px;
+    left:100px;
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+    box-shadow: 0 5px 7px rgba(7, 7, 7, 0.1);
+}
