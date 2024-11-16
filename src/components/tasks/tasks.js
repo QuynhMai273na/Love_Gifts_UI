@@ -3,6 +3,7 @@ import {Form, Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import "./tasks.css";
 import taskicon from "./taskicon.png";
+import {jwtDecode} from "jwt-decode";
 const Tasks = () => {
 
     const [tasks, setTasks] = useState([]);
@@ -16,8 +17,33 @@ const Tasks = () => {
             console.error("Error fetching tasks:", error);
         }
     };
-    const handleAddTask = () => {
-
+    const handleAddTask = async (taskId) => {
+        const token = localStorage.getItem("token");
+        let userId="";
+        if (token) {
+            // Giải mã token để lấy thông tin user
+            const decoded = jwtDecode(token);
+            console.log(decoded);
+            userId = decoded.userId;
+        }
+       
+        try {
+            const response = await fetch("http://localhost:5000/api/usertask/add", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ userId, taskId }),
+            });
+    
+            if (response.ok) {
+                alert("You have successfully added the task to your list!");
+            } else {
+                alert("An error occurred while adding the task.");
+            }
+        } catch (error) {
+            console.error("Error:", error.message);
+        }
     };
 
     useEffect(() => {
@@ -37,7 +63,7 @@ const Tasks = () => {
                         </span>
                         <button
                             className="add-button"
-                            onClick={() => handleAddTask()}
+                            onClick={() => handleAddTask(task._id)}
                         >
                             Add
                         </button>
