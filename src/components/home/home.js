@@ -33,7 +33,7 @@ const Home = () => {
         navigate("/home/gift")
     }
     const handleTaskClick = () => {
-        navigate("/home/task")
+        navigate("/home/tasks")
     }
     return (
         <>
