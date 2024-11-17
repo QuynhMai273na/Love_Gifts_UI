@@ -13,6 +13,20 @@ const Home = () => {
     const [userPoint, setPoint] = useState("");
     const navigate = useNavigate();
 
+    const getUserPoint = async () => {
+        const token = localStorage.getItem("token");
+        const decoded = jwtDecode(token);
+        console.log(decoded);
+        const user = decoded.userId;
+        try {
+            const response = await fetch(`http://localhost:5000/api/user/${user}`);
+            const data = await response.json();
+            setPoint(data.point);
+        } catch (error) {
+            console.error("Error fetching tasks:", error);
+        }
+    }
+
     useEffect(() => {
         const user = localStorage.getItem("user");        
 
@@ -22,6 +36,7 @@ const Home = () => {
             setEmail(userObject.email || "Email");
             setPoint(userObject.point || "0");
         }
+        getUserPoint();
     }, []);
     const handleProfileClick = () => {
         navigate("/home/profile")
