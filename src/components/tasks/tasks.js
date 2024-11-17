@@ -7,6 +7,28 @@ import {jwtDecode} from "jwt-decode";
 const Tasks = () => {
 
     const [tasks, setTasks] = useState([]);
+    const [currentUser, setCurrentUser] = useState(null);
+    const [userId, setUserId] = useState("");
+  
+    useEffect(() => {
+      const user = getCurrentUser();
+      if (user) {
+          setCurrentUser(user);        
+          setUserId(user.id);
+      }
+    }, []);
+  
+    const getCurrentUser = () => {
+      const user = localStorage.getItem("user");
+      if (!user) return null;
+      try {
+        const parsedUser = JSON.parse(user);
+        return parsedUser;
+      } catch (error) {
+        console.error("Error decoding token:", error);
+        return null;
+      }
+    };
 
     const fetchTasks = async () => {
         try {
@@ -18,15 +40,10 @@ const Tasks = () => {
         }
     };
     const handleAddTask = async (taskId) => {
-        const token = localStorage.getItem("token");
-        let userId="";
-        if (token) {
-            // Giải mã token để lấy thông tin user
-            const decoded = jwtDecode(token);
-            console.log(decoded);
-            userId = decoded.userId;
+        if (!taskId || !currentUser) {
+            return;
         }
-       
+
         try {
             const response = await fetch("http://localhost:5000/api/usertask/add", {
                 method: "POST",

@@ -87,7 +87,7 @@ const Cart = () => {
                                     <h3 className="cart-item-card-title">{item.gift.name}</h3>
                                     <p className="user-points">{item.gift.point} points</p>
                                     <div className="cart-item-actions">
-                                        <Button className="receive-btn" onClick={()=> handelReceiveGift(item._id)}>Received</Button>
+                                        <Button className="receive-btn" onClick={()=> handelReceiveGift(item._id)}>Receive</Button>
                                         <Button className="remove-btn" onClick={() => handleRemoveFromCart(item._id)}>Remove</Button>
                                     </div>
                                 </div>    
