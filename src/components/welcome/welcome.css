@@ -4,6 +4,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed; /* Giữ ảnh nền cố định khi cuộn trang */
+    color: #C9184A;
   }
 .introduce-section {
     height: 500px;

@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Form, Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import {jwtDecode} from "jwt-decode";
 import avatar from "./avatar.jpg"
 import "./home.css";
 import boy from "./boy.png";
@@ -15,15 +14,13 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
+        const user = localStorage.getItem("user");        
 
-        if (token) {
-            // Giải mã token để lấy thông tin user
-            const decoded = jwtDecode(token);
-            console.log(decoded);
-            setUserName(decoded.name || "User");
-            setEmail(decoded.email || "Email");
-            setPoint(decoded.point || "0");
+        if (user) {
+            const userObject = JSON.parse(user);
+            setUserName(userObject.name || "User");
+            setEmail(userObject.email || "Email");
+            setPoint(userObject.point || "0");
         }
     }, []);
     const handleProfileClick = () => {
