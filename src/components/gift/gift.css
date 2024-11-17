@@ -1,16 +1,21 @@
 /* gift.css */
-
+.gift-page{
+  background-color: #FFF0F3;
+}
 /* Container style */
 .gift-container {
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
     background-color: #FFF0F3;
     color: #C9184A ;
-    ;
   }
-  
+  .gift-container h1{
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
   /* Row style */
   .gift-row {
     margin: auto;

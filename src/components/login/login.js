@@ -37,10 +37,13 @@ const Login = () => {
     
             if (response.ok) {
                 const data = await response.json();
+
+                console.log(data);
                
     
                 // Lưu token vào localStorage
                 localStorage.setItem("token", data.token);
+                localStorage.setItem("user", JSON.stringify(data.user));
     
                 // Điều hướng đến trang /home/:id
                 navigate('/home/');

@@ -1,47 +1,92 @@
-import React, { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
-import './gift.css';
+import React, { useState, useEffect } from "react";
+import { Button } from "react-bootstrap";
+import "./gift.css";
 
 const Gift = () => {
+  const [currentUser, setCurrentUser] = useState(null);
   const [gifts, setGifts] = useState([]);
-  const handleAddToCart = (gift) => {
-    // Ở đây bạn có thể thêm logic để lưu gift vào state giỏ hàng hoặc gọi API
-  };
+
   useEffect(() => {
-    const fetchGifts = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/api/gift');
-        const data = await response.json();
-        setGifts(data);
-      } catch (error) {
-        console.error('Error fetching data', error.message);
-      }
-    };
+    const user = getCurrentUser();
+    if (user) setCurrentUser(user);
+  }, []);
+
+  useEffect(() => {
     fetchGifts();
   }, []);
 
+  const getCurrentUser = () => {
+    const user = localStorage.getItem("user");
+    if (!user) return null;
+    try {
+      const parsedUser = JSON.parse(user);
+      return parsedUser;
+    } catch (error) {
+      console.error("Error decoding token:", error);
+      return null;
+    }
+  };
+
+  const fetchGifts = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/gift");
+      const data = await response.json();
+      setGifts(data);
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
+  };
+
+  const handleAddToCart = async (giftId) => {
+    console.log("Adding gift to cart:", giftId);
+    if (!currentUser) {
+      alert("Please log in first");
+      return;
+    }
+
+    try {
+      await fetch("http://localhost:5000/api/cart/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user: currentUser.id,
+          giftId: giftId,
+        }),
+      });
+
+      alert("Gift added to cart");
+    } catch (error) {
+      console.error("Error adding gift to cart:", error);
+    }
+  };
+
   return (
-    <div className="gift-container">
-      <h1>Wish List</h1>
-      <div className="gift-row">
-        {gifts.map((gift) => (
-          <div className="gift-col" key={gift._id.$oid}>
-            <div className="gift-card">
-              <img src={gift.picture} alt={gift.name} />
-              <div className="gift-card-body">
-                <h3 className="gift-card-title">{gift.name}</h3>
-                <p className="gift-card-text">{gift.point} Points</p>
-                <Button
-                  className="add-to-cart-btn"
-                  onClick={() => handleAddToCart(gift)}>
-                  Add to Cart
-                </Button>
+    <div className="gift-page">
+      <div className="gift-container">
+        <h1>Wish List</h1>
+        <div className="gift-row">
+          {gifts.map((gift) => (
+            <div className="gift-col" key={gift._id.$oid}>
+              <div className="gift-card">
+                <img src={gift.picture} alt={gift.name} className="gift-card-img" />
+                <div className="gift-card-body">
+                  <h3 className="gift-card-title">{gift.name}</h3>
+                  <p className="gift-card-text">{gift.point} Points</p>
+                  <Button
+                    className="add-to-cart-btn"
+                    onClick={() => handleAddToCart(gift._id)}
+                  >
+                    Add to Cart
+                  </Button>
+                </div>
               </div>
-                {/* <Button className="add-gift-btn">Add to Wish List</Button> */}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
     </div>
   );
 };

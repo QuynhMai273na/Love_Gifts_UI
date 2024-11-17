@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react";
 import {Form, Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import {jwtDecode} from "jwt-decode";
 import avatar from "./avatar.jpg"
 import "./home.css";
 import boy from "./boy.png";
 import girl from "./girl.png";
 import heart from "./heart.png";
+
 const Home = () => {
 
     const [userName, setUserName] = useState("");
@@ -15,12 +15,12 @@ const Home = () => {
     const navigate = useNavigate();
 
     const getUserPoint = async () => {
-        const token = localStorage.getItem("token");
-        const decoded = jwtDecode(token);
-        console.log(decoded);
-        const user = decoded.userId;
+        const user = localStorage.getItem("user");
+        const userObject = JSON.parse(user);
+        const userId = userObject.id;
+        
         try {
-            const response = await fetch(`http://localhost:5000/api/user/${user}`);
+            const response = await fetch(`http://localhost:5000/api/user/${userId}`);
             const data = await response.json();
             setPoint(data.point);
         } catch (error) {
@@ -29,15 +29,13 @@ const Home = () => {
     }
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
+        const user = localStorage.getItem("user");        
 
-        if (token) {
-            // Giải mã token để lấy thông tin user
-            const decoded = jwtDecode(token);
-            console.log(decoded);
-            setUserName(decoded.name || "User");
-            setEmail(decoded.email || "Email");
-            setPoint(decoded.point || "0");
+        if (user) {
+            const userObject = JSON.parse(user);
+            setUserName(userObject.name || "User");
+            setEmail(userObject.email || "Email");
+            setPoint(userObject.point || "0");
         }
         getUserPoint();
     }, []);
