@@ -51,7 +51,7 @@ const Register = () => {
     
     return (
         <>
-            <div className="center-form">
+            <div className="center-form-loginregist">
                 <h1 id="Lable-regis">Register your account</h1>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formBasicEmail">

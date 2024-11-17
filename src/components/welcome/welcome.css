@@ -1,0 +1,109 @@
+.center-form {
+    background-image: url('./background.jpg'); /* Đảm bảo đường dẫn đúng */
+    background-size: cover; /* Đảm bảo ảnh phủ toàn bộ màn hình */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Giữ ảnh nền cố định khi cuộn trang */
+    color: #C9184A;
+  }
+.introduce-section {
+    height: 500px;
+    width: 100%;
+    border-bottom: dashed #FF4D6D 2px;
+    display: flex;
+    position: relative;
+}
+.introduce{
+    margin-top: 50px;
+    margin-left: 80px;
+    padding: 40px 50px;
+}
+.guide-section {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    justify-items: center;
+    padding: 20px 0px;
+    padding-bottom: 40px;
+}
+  .introduce h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .introduce p {
+    font-size: 1rem;
+    color: #555454;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+  
+  .get-start-btn {
+    background-color: #C9184A;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .steps {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .step {
+    text-align: center;
+  }
+  .step span{
+    color: #555454;
+  }
+  
+  .step img {
+    width: 100px;
+    height: 100px;
+    background-color: #cfd8dc;
+    border-radius: 25%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  .team-section {
+    text-align: center;
+    justify-items: center;
+    padding-top: 20px;
+  }
+  .team-section p {
+    color: #555454;
+  }
+  .team-members {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .team-member{
+    padding: 20px;
+  }
+  .team-member img {
+    border-radius: 25%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .small-image {
+    position: absolute;
+    width: 30%; 
+    height: auto;
+    right: 10%;
+    bottom: 5%;
+  }
+  

@@ -17,15 +17,51 @@ const Login = () => {
         });
     }
     const navigate =  useNavigate();
-    const handleSubmit = async (e) => {
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        const {email, password} = formData;
+
+        if (!email || !password) {
+            alert("Please enter your email and password.");
+            return;
+        }
         
+        try {
+            const response = await fetch("http://localhost:5000/api/user/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password }),
+            });
+    
+            if (response.ok) {
+                const data = await response.json();
+
+                console.log(data);
+               
+    
+                // Lưu token vào localStorage
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("user", JSON.stringify(data.user));
+    
+                // Điều hướng đến trang /home/:id
+                navigate('/home/');
+            } else {
+                const errorData = await response.json();
+                alert(`Login failed: ${errorData.error}`);
+            }
+        } catch (error) {
+            console.error("Error:", error.message);
+            alert("Something went wrong, please try again!");
+        }
     }
     
     return (
         <>
-            <div id="login-center-form" className="center-form">
+            <div id="login-center-form" className="center-form-loginregist">
                 <h1 id="Lable-login">Login</h1>
-                <Form id="form-login" onSubmit={handleSubmit}>
+                <Form id="form-login" onSubmit={handleLogin}>
                     <Form.Group controlId="formBasicEmailLogin">
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control

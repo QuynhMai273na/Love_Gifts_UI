@@ -1,0 +1,55 @@
+.allTasks {
+    background-color: #FFF0F3;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+#task-label {
+    position: relative;
+    top: 0px;
+    left: 280px;
+    color: #A4133C;
+    font-size: 50px;
+}
+#task-icon {
+    position:relative;
+    top: -3px;
+    left: 260px;
+}
+.task-item {
+    margin: 5px;
+    display: flex;
+    justify-content: space-between; /* Căn hai phần tử ở hai bên */
+    align-items: center;
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 25px;
+    height: 30px;
+    box-shadow: 5px 10px 15px rgba(7, 7, 7, 0.1);
+}
+.task-list {
+    margin-left: -300px;
+    margin-top: 120px;
+    height: 80%;
+    width: 800px;
+}
+.add-button {
+    margin-left: auto; /* Đẩy nút Add sang phải */
+    padding: 4px 8px;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 35px;
+    width: 50px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(45deg, #8a0f32, #ee7899);
+}
+
+.add-button:hover {
+    background: linear-gradient(45deg, #7c0626, #915465);
+}
