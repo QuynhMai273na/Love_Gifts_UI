@@ -4,7 +4,6 @@
     background-color: #FFF0F3;
     padding: 20px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 .cart-container {
     width: 80%;
@@ -76,15 +75,9 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #555454;
 }
-/* Button actions */
-.cart-item-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 20px;
-}
 
-.receive-btn, .remove-btn {
+
+.status-btn {
     color: #fff;
     border: none;
     border-radius: 15px;
@@ -95,7 +88,7 @@
     transition: background-color 0.3s ease;
 }
 
-.receive-btn {
+/* .receive-btn {
     background-color: #1f9b1a;
 }
 
@@ -109,4 +102,17 @@
 
 .remove-btn:hover {
     background-color: #800F2F;
-}
+} */
+.status-btn {
+    color: white;
+    cursor: not-allowed;
+  }
+  
+  .btn-pending {
+    background-color: #800F2F;
+  }
+  
+  .btn-received {
+    background-color: #198517;
+  }
+  

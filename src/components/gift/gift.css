@@ -10,11 +10,12 @@
     text-align: center;
     background-color: #FFF0F3;
     color: #C9184A ;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
   }
   .gift-container h1{
-    font-size: 36px;
+    font-size: 40px;
     margin-bottom: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
   /* Row style */
   .gift-row {
