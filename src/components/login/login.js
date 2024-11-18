@@ -17,6 +17,7 @@ const Login = () => {
         });
     }
     const navigate =  useNavigate();
+    
     const handleLogin = async (e) => {
         e.preventDefault();
         const {email, password} = formData;
