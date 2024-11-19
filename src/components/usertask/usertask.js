@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import "./usertask.css";
 const UserTask = () => {
   const [usertasks, setUsertasks] = useState([]);
+  const [completedTasks, setComplete]=useState([]);
+  const [incompleteTasks, setIncomplete]=useState([]);
   const token = localStorage.getItem("token");
   const [userPoint, setPoint] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
@@ -50,6 +52,10 @@ const UserTask = () => {
       );
       const data = await response.json();
       setUsertasks(data);
+      const completed = data.filter((task) => task.status.toLowerCase() === "completed");
+      setComplete(completed);
+      const incomplete = data.filter((task) => task.status.toLowerCase() === "incomplete");
+      setIncomplete(incomplete);
     } catch (error) {
       console.error("Error fetching tasks:", error);
     }
@@ -76,6 +82,7 @@ const UserTask = () => {
       );
       const updatePoint = userPoint + updatedTask.task.point;
       setPoint(updatePoint);
+      await fetchUsertasks();
     } catch (error) {
       console.error("Error completing task:", error);
     }
@@ -89,6 +96,7 @@ const UserTask = () => {
     }
 
   }, [userId]);
+  
 
   return (
     <>
@@ -96,10 +104,12 @@ const UserTask = () => {
         <div className="usertaskPoint">
           <p>Point: {userPoint}</p>
         </div>
-        <h1 id="usertask-label">Your Task List</h1>
+        <div className="usertask-container">
+        <h1 id="usertask-label">My Task List</h1>
+       
         <div className="usertask-list">
-          {usertasks.length &&
-            usertasks.map((usertask) => (
+          {usertasks.length >0 &&
+            incompleteTasks.map((usertask) => (
               <div className="usertask-item" key={usertask._id}>
                 <span>
                   <strong>{usertask.task.name}</strong> - {usertask.task.point}{" "}
@@ -114,6 +124,21 @@ const UserTask = () => {
                 </button>
               </div>
             ))}
+        </div>
+        </div>
+            <div className="complete-container">
+        <h1 id="completed-label">Completed Tasks</h1>
+        <div className="completed-list">
+          {usertasks.length>0 &&
+            completedTasks.map((usertask) => (
+              <div className="completed-item" key={usertask._id}>
+                <span>
+                  <strong>{usertask.task.name}</strong> - {usertask.task.point}{" "}
+                  points
+                </span>
+              </div>
+            ))}
+        </div>
         </div>
       </div>
     </>

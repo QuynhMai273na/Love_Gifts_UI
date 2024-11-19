@@ -77,7 +77,7 @@ const Cart = () => {
         <>
         <div className="cart-page">
             <div className="cart-container">
-                <h1>Your Cart</h1>
+                <h1>My Cart</h1>
                 <div className="cart-row">
                     {cartItems.map((item)=> (
                         <div className="cart-col" key={item._id.$oid}>

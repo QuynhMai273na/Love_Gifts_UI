@@ -85,12 +85,12 @@ const Profile = () => {
     return (
         <>
             <div className="profile-container">
-                <h1 id="profile-label">Your Profile</h1>
+                <h1 id="profile-label">My Profile</h1>
             <div className="profile-info">
-                <p className="info-items"><strong>Name:</strong> {userName}</p>
-                <p className="info-items"><strong>Gender:</strong> {userGender}</p>
-                <p className="info-items"><strong>Email:</strong> {userEmail}</p>
-                <p className="info-items"><strong>Point:</strong> {userPoint}</p>
+                <p className="info-items"><strong className="strong-profile">Name: </strong> {userName}</p>
+                <p className="info-items"><strong className="strong-profile">Gender: </strong> {userGender}</p>
+                <p className="info-items"><strong className="strong-profile">Email: </strong> {userEmail}</p>
+                <p className="info-items"><strong className="strong-profile">Point: </strong> {userPoint}</p>
                 <p className="info-items">
                     <strong>Partner:</strong> 
                     {userPartner ? userPartner : "You don't have partner !"}
@@ -109,7 +109,7 @@ const Profile = () => {
             {(!userPartner || userPartner === "") && (
                 <Form className="partner-form">
                     <Form.Group controlId="partnerEmail">
-                        <Form.Label id="findpartner-label">Find your partner:  </Form.Label>
+                        <Form.Label id="findpartner-label">Find my partner:  </Form.Label>
                         <Form.Control
                             type="email"
                             placeholder="Enter your partner email"
