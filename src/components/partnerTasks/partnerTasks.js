@@ -51,12 +51,12 @@ const PartnerTasks = () => {
   return (
     <div className="task-page">
     <Container className="task-container">
-      <h1>List tasks of your partner</h1>
+      <h1>List tasks of my partner</h1>
 
       {/* Trường hợp không có task nào */}
       {partnerTasks.length === 0 && (
         <div className="no-task-header">
-          <h3>Your partner has no available task! </h3>
+          <h3>My partner has no available task! </h3>
         </div>
       )}
 

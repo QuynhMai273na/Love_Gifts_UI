@@ -100,7 +100,7 @@ const Profile = () => {
                 <p className="info-items"><strong className="strong-profile">Email: </strong> {userEmail}</p>
                 <p className="info-items"><strong className="strong-profile">Point: </strong> {userPoint}</p>
                 <p className="info-items">
-                    <strong>Partner:</strong> 
+                    <strong className="strong-profile">Partner:</strong> 
                     {userPartner ? userPartner : "You don't have partner !"}
                 </p>
             </div>

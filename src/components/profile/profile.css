@@ -14,7 +14,7 @@
     padding: 20px;
     top: 0px;
 
-    left: 390px;
+    left: 500px;
     color: #C9184A;
     font-size: 40px;
 
@@ -122,6 +122,6 @@
     width: 400px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-strong-profile {
+.strong-profile {
     margin-right: 30px;
 }
