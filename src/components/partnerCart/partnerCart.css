@@ -12,7 +12,12 @@
     background-color: #FFF0F3;
     border-radius: 12px;
 }
-
+.no-gift-header{
+    font-size: 20px;
+    font-style: italic;
+    color: #C9184A;
+    text-align: center;
+}
 /* Cải thiện style của tiêu đề */
 .cart-container h1 {
     font-size: 40px;

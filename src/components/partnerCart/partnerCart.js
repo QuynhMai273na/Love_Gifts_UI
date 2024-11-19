@@ -46,6 +46,12 @@ const PartnerCart = () => {
         <div className="cart-page">
           <div className="cart-container">
             <h1>Your Partner's Cart</h1>
+            {cartItems.length === 0 && (
+              <div className="no-gift-header">
+                <h3>"No available gifts in your partner's cart!" </h3>
+              </div>
+            )}
+
             <div className="cart-row">
               {cartItems.map((item) => (
                 <div className="cart-col" key={item._id.$oid}>
@@ -59,7 +65,11 @@ const PartnerCart = () => {
                       <h3 className="cart-item-card-title">{item.gift.name}</h3>
                       <p className="gift-points">{item.gift.point} points</p>
                       <Button
-                        className={`status-btn ${item.status === "pending" ? "btn-pending" : "btn-received"}`}
+                        className={`status-btn ${
+                          item.status === "pending"
+                            ? "btn-pending"
+                            : "btn-received"
+                        }`}
                         disabled
                       >
                         {item.status === "pending" ? "Pending" : "Received"}
