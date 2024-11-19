@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
+    const [receivedGifts, setReceivedGifts] = useState([]);
 
     useEffect(() => {
       const user = getCurrentUser();
@@ -34,6 +35,15 @@ const Cart = () => {
         console.error("Error fetching data:", error.message);
       }
     };
+    const fetchReceivedGifts = async () => {
+      try {
+        const response = await fetch (`http://localhost:5000/api/cart/received-gift/${currentUser.id}`);
+        const data = await response.json();
+        setReceivedGifts(data);
+      }catch (error){
+        console.error("Error fetching data:", error.message);
+      }
+    };
 
     const handleRemoveFromCart = async (cartId) =>{
         try{
@@ -48,6 +58,7 @@ const Cart = () => {
     useEffect(() => {
         if (currentUser) {
           fetchCart();
+          fetchReceivedGifts();
         }
       }, [currentUser]);
     const handelReceiveGift = async (cartId) =>{
@@ -58,6 +69,7 @@ const Cart = () => {
         if(response.status === 200){
           alert(`Gift received successfully! Remaining points: ${data.remainingPoints}`);
           fetchCart();
+          fetchReceivedGifts();
         }
         else if(response.status === 400){
           alert(data.message);
@@ -70,35 +82,87 @@ const Cart = () => {
         console.error("Error receiving gift:", error.message);
       }
     }
+    
 
 
 
     return (
-        <>
+      <>
         <div className="cart-page">
-            <div className="cart-container">
-                <h1>My Cart</h1>
-                <div className="cart-row">
-                    {cartItems.map((item)=> (
-                        <div className="cart-col" key={item._id.$oid}>
-                            <div className="cart-item-card">
-                                <img className="cart-item-cart-img" src={item.gift.picture} alt={item.gift.name} />
-                                <div className="cart-item-card-body">
-                                    <h3 className="cart-item-card-title">{item.gift.name}</h3>
-                                    <p className="user-points">{item.gift.point} points</p>
-                                    <div className="cart-item-actions">
-                                        <Button className="receive-btn" onClick={()=> handelReceiveGift(item._id)}>Receive</Button>
-                                        <Button className="remove-btn" onClick={() => handleRemoveFromCart(item._id)}>Remove</Button>
-                                    </div>
-                                </div>    
 
-                            </div>
-                        </div>                    
-                    ))}
+          <div className="cart-container">
+            <h1>My Cart</h1>
+            {cartItems.length === 0 && (
+              <div className="no-gift-header">
+                <h3>"No available gift in cart!" </h3>
+              </div>
+            )}
+            <div className="cart-row">
+              {cartItems.map((item) => (
+                <div className="cart-col" key={item._id.$oid}>
+                  <div className="cart-item-card">
+                    <img
+                      className="cart-item-cart-img"
+                      src={item.gift.picture}
+                      alt={item.gift.name}
+                    />
+                    <div className="cart-item-card-body">
+                      <h3 className="cart-item-card-title">{item.gift.name}</h3>
+                      <p className="user-points">{item.gift.point} points</p>
+                      <div className="cart-item-actions">
+                        <Button
+                          className="receive-btn"
+                          onClick={() => handelReceiveGift(item._id)}
+                        >
+                          Receive
+                        </Button>
+                        <Button
+                          className="remove-btn"
+                          onClick={() => handleRemoveFromCart(item._id)}
+                        >
+                          Remove
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              ))}
             </div>
+          </div>
+          <div className="received-gift-container">
+            <h1>List Received Gifts</h1>
+            {receivedGifts.length === 0 && (
+              <div className="no-gift-header">
+                <h3>"No gift has been received!" </h3>
+              </div>
+            )}
+            <div className="received-gift-row">
+              {receivedGifts.map((cartItem) => (
+                <div className="received-gift-col" key={cartItem._id.$oid}>
+                  <div className="received-gift-card">
+                    <img
+                      src={cartItem.gift.picture}
+                      alt={cartItem.gift.name}
+                      className="received-gift-card-img"
+                    />
+                    <div className="received-gift-card-body">
+                      <h3 className="received-gift-card-title">
+                        {cartItem.gift.name}
+                      </h3>
+                      <p className="received-gift-card-text">
+                        {cartItem.gift.point} Points
+                      </p>
+                      <Button className="status-btn" disabled>
+                        Received
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        </>
+      </>
     );
 };
 

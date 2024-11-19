@@ -9,10 +9,11 @@
 }
 #task-label {
     position: relative;
+    padding: 20px;
     top: 0px;
     left: 280px;
-    color: #A4133C;
-    font-size: 50px;
+    color: #C9184A;
+    font-size: 40px;
 }
 #task-icon {
     position:relative;

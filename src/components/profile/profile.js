@@ -11,7 +11,7 @@ const Profile = () => {
     const [userPartner, setPartner] = useState("");
     const [userPartnerTmp, setPartnerTmp] = useState("");
     const [isSearching, setIsSearching] = useState(false);
-
+    const navigate = useNavigate();
   
     const getUserInfo = () => {
         const user = localStorage.getItem("user");
@@ -82,6 +82,14 @@ const Profile = () => {
         }
         setIsSearching(false);
     };
+    const handlePartnerCartClick = () => {
+        navigate("/home/partner/cart");
+    };
+
+    const handlePartnerTaskClick = () => {
+        navigate("/home/partner/tasks");
+    };
+
     return (
         <>
             <div className="profile-container">
@@ -98,10 +106,10 @@ const Profile = () => {
             </div>
             {(userPartner) && (
                 <Form className="partner-form">
-                    <Button id="view-cart">
+                    <Button id="view-cart" onClick={handlePartnerCartClick}>
                         View Partner's Cart
                     </Button>
-                    <Button id="view-task">
+                    <Button id="view-task" onClick={handlePartnerTaskClick}>
                         View Partner's Task
                     </Button>
                 </Form>

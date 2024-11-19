@@ -11,10 +11,13 @@
 }
 #profile-label {
     position: relative;
+    padding: 20px;
     top: 0px;
-    left: 510px;
-    color: #A4133C;
-    font-size: 50px;
+
+    left: 390px;
+    color: #C9184A;
+    font-size: 40px;
+
 }
 
 .info-items {

@@ -12,11 +12,13 @@
     display: flex;
 }
 #usertask-label {
+    /* margin-top: 10px; */
+    padding: 20px;
     position: relative;
     top: 80px;
     left: 280px;
-    color: #A4133C;
-    font-size: 50px;
+    color: #C9184A;
+    font-size: 40px;
 }
 #completed-label {
     position: relative;
