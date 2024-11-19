@@ -6,6 +6,8 @@ import Home from "../components/home/home";
 import Profile from "../components/profile/profile";
 import Gift from "../components/gift/gitft";
 import Tasks from "../components/tasks/tasks";
+import PartnerCart from "../components/partnerCart/partnerCart";
+import PartnerTasks from "../components/partnerTasks/partnerTasks";
 
 
 function HomePage() {
@@ -19,6 +21,8 @@ function HomePage() {
         <Route path="/task" element={<UserTask></UserTask>}></Route>
         <Route path="/profile" element={<Profile></Profile>}></Route>
         <Route path="/tasks" element={<Tasks></Tasks>}></Route>
+        <Route path="/partner/cart" element={<PartnerCart></PartnerCart>}></Route>
+        <Route path="/partner/tasks" element={<PartnerTasks></PartnerTasks>}></Route>
         
       </Routes>
     </>

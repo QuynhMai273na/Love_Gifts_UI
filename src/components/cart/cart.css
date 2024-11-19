@@ -3,25 +3,29 @@
     height: 100vh;
     background-color: #FFF0F3;
     padding: 20px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 .cart-container {
     width: 80%;
     margin: 0 auto;
-    padding: 20px;
     text-align: center;
-    /* color: #C9184A; */
     background-color: #FFF0F3;
     border-radius: 12px;
 }
 
 /* Cải thiện style của tiêu đề */
 .cart-container h1 {
-    font-size: 36px;
+    font-size: 40px;
     margin-bottom: 35px;
-    font-family: 'Trebuchet MS', Arial, sans-serif;
     color: #C9184A;
 }
-
+.no-gift-header{
+    font-size: 20px;
+    font-style: italic;
+    color: #C9184A;
+    text-align: center;
+}
 /* Row style */
 .cart-row {
     display: flex;
@@ -61,6 +65,7 @@
     width: 60%;
     height: 100%;
     object-fit: cover;
+    border-radius: 15px 0 0 15px;
 }
 .cart-item-card-body {
     padding: 15px;
@@ -110,3 +115,93 @@
 .remove-btn:hover {
     background-color: #800F2F;
 }
+
+/* received gifts css */
+/* Container style */
+.received-gift-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #FFF0F3;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  }
+  .received-gift-container h1{
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #1e9b1ad4 ;
+
+}
+  /* Row style */
+  .received-gift-row {
+    margin: auto;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Column style */
+  .received-gift-col {
+    flex: 1 1 calc(25% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    max-width: calc(25% - 20px);
+  }
+  
+  /* Card style */
+  .received-gift-card {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  
+  .received-gift-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .received-gift-card img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 0px;
+    object-fit: cover;
+  }
+  
+  .received-gift-card-body {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .received-gift-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px;
+    color: #C9184A ;
+    ;
+
+  }
+  
+  .received-gift-card-text {
+    color: #888;
+  }
+  
+  /* Button style */
+.status-btn {
+    background-color: #126311;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 0px;
+    justify-content: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
