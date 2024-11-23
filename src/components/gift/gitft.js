@@ -66,11 +66,20 @@ const Gift = () => {
     <div className="gift-page">
       <div className="gift-container">
         <h1>Wish List</h1>
+        {gifts.length === 0 && (
+          <div className="no-gift-header">
+            <h3>"No available gifts!" </h3>
+          </div>
+        )}
         <div className="gift-row">
           {gifts.map((gift) => (
             <div className="gift-col" key={gift._id.$oid}>
               <div className="gift-card">
-                <img src={gift.picture} alt={gift.name} className="gift-card-img" />
+                <img
+                  src={gift.picture}
+                  alt={gift.name}
+                  className="gift-card-img"
+                />
                 <div className="gift-card-body">
                   <h3 className="gift-card-title">{gift.name}</h3>
                   <p className="gift-card-text">{gift.point} Points</p>
@@ -86,7 +95,6 @@ const Gift = () => {
           ))}
         </div>
       </div>
-
     </div>
   );
 };
