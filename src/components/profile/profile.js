@@ -95,13 +95,13 @@ const Profile = () => {
             <div className="profile-container">
                 <h1 id="profile-label">My Profile</h1>
             <div className="profile-info">
-                <p className="info-items"><strong className="strong-profile">Name: </strong> {userName}</p>
-                <p className="info-items"><strong className="strong-profile">Gender: </strong> {userGender}</p>
-                <p className="info-items"><strong className="strong-profile">Email: </strong> {userEmail}</p>
-                <p className="info-items"><strong className="strong-profile">Point: </strong> {userPoint}</p>
+                <p className="info-items"><strong>Name: </strong> <p className="strong-profile"> {userName}</p></p>
+                <p className="info-items"><strong>Gender: </strong> <p className="strong-profile">{userGender}</p></p>
+                <p className="info-items"><strong>Email: </strong><p className="strong-profile"> {userEmail}</p></p>
+                <p className="info-items"><strong>Point: </strong><p className="strong-profile"> {userPoint}</p></p>
                 <p className="info-items">
-                    <strong className="strong-profile">Partner:</strong> 
-                    {userPartner ? userPartner : "You don't have partner !"}
+                    <strong>Partner:</strong> 
+                    <p className="strong-profile">{userPartner ? userPartner : "You don't have partner !"}</p>
                 </p>
             </div>
             {(userPartner) && (
