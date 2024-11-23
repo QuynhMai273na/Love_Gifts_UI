@@ -24,8 +24,9 @@
 
 }
 #Lable-regis{
-    margin-top:50px;
+    margin-top:60px;
     color: #C9184A;
+    /* position: relative; */
 }
 .center-form-loginregist Form Label {
     font-weight: bold;
