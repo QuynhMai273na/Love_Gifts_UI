@@ -51,20 +51,29 @@ const Home = () => {
     return (
         <>
             <div className="homepage">
-                <div className="userProfile" onClick={handleProfileClick}>
-                    <img src={avatar} width="50" height="50" id="avatar"/>
-                    <b className="userinfo1">{userName}</b>
-                    <br/>
-                    <i className="userinfo2">{userEmail}</i>
+                <div className="user">
+
+                    <div className="userProfile" onClick={handleProfileClick}>
+                        <img src={avatar} width="50" height="50" id="avatar"/>
+                        <b className="userinfo1">{userName}</b>
+                        <br/>
+                        <i className="userinfo2">{userEmail}</i>
+                    </div>
+                    <div className="userPoint">
+                        <p>Point: {userPoint}</p>
+                    </div>
                 </div>
-                <div className="userPoint">
-                    <p>Point: {userPoint}</p>
+                <div className="functions">
+                <div id="findGift" onClick={handleGiftClick}>Find Gifts</div>
+                <div id="findTask" onClick={handleTaskClick}>Find Tasks</div>
+
                 </div>
+                <div className="gifs">
                 <img src={boy} id="boy" width="300" height="300"/>
                 <img src={heart} id="heart" width="300" height="300"/>
                 <img src={girl} id="girl"  width="300" height="300"/>
-                <div id="findGift" onClick={handleGiftClick}>Find Gifts</div>
-                <div id="findTask" onClick={handleTaskClick}>Find Tasks</div>
+
+                </div>
             </div>
         </>
     );
