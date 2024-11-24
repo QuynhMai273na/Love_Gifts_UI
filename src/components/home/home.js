@@ -20,7 +20,7 @@ const Home = () => {
         const userId = userObject.id;
         
         try {
-            const response = await fetch(`http://localhost:5000/api/user/${userId}`);
+            const response = await fetch(`https://api.learningjournal.space/api/user/${userId}`);
             const data = await response.json();
             setPoint(data.point);
         } catch (error) {

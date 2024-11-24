@@ -35,7 +35,7 @@ const Profile = () => {
         const userId = userObject.id;
 
         try {
-            const response = await fetch(`http://localhost:5000/api/user/${userId}`);
+            const response = await fetch(`https://api.learningjournal.space/api/user/${userId}`);
             const data = await response.json();
             setPoint(data.point);
             setPartner(data.partner);
@@ -60,7 +60,7 @@ const Profile = () => {
         const partnerEmail = userPartnerTmp;
         console.log(partnerEmail);
         try {
-            const response = await fetch(`http://localhost:5000/api/user/partner/${userId}`,{
+            const response = await fetch(`https://api.learningjournal.space/api/user/partner/${userId}`,{
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",

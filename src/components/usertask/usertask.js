@@ -35,7 +35,7 @@ const UserTask = () => {
   const getUserPoint = async () => {
     // const userId = currentUser.id;
     try {
-      const response = await fetch(`http://localhost:5000/api/user/${userId}`);
+      const response = await fetch(`https://api.learningjournal.space/api/user/${userId}`);
       const data = await response.json();
       setPoint(data.point);
     } catch (error) {
@@ -48,7 +48,7 @@ const UserTask = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/usertask/${userId}`
+        `https://api.learningjournal.space/api/usertask/${userId}`
       );
       const data = await response.json();
       setUsertasks(data);
@@ -63,7 +63,7 @@ const UserTask = () => {
   const handleCompleteTask = async (usertaskId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/usertask/complete/${usertaskId}`,
+        `https://api.learningjournal.space/api/usertask/complete/${usertaskId}`,
         {
           method: "PUT",
           headers: {

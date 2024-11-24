@@ -32,7 +32,7 @@ const Tasks = () => {
 
     const fetchTasks = async () => {
         try {
-            const response = await fetch("http://localhost:5000/api/task");
+            const response = await fetch("https://api.learningjournal.space/api/task");
             const data = await response.json();
             setTasks(data);
         } catch (error) {
@@ -45,7 +45,7 @@ const Tasks = () => {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/usertask/add", {
+            const response = await fetch("https://api.learningjournal.space/api/usertask/add", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
