@@ -27,7 +27,7 @@ const Cart = () => {
     const fetchCart = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/cart/${currentUser.id}`
+          `https://api.learningjournal.space/api/cart/${currentUser.id}`
         );
         const data = await response.json();
         setCartItems(data);
@@ -37,7 +37,7 @@ const Cart = () => {
     };
     const fetchReceivedGifts = async () => {
       try {
-        const response = await fetch (`http://localhost:5000/api/cart/received-gift/${currentUser.id}`);
+        const response = await fetch (`https://api.learningjournal.space/api/cart/received-gift/${currentUser.id}`);
         const data = await response.json();
         setReceivedGifts(data);
       }catch (error){
@@ -47,7 +47,7 @@ const Cart = () => {
 
     const handleRemoveFromCart = async (cartId) =>{
         try{
-            await fetch(`http://localhost:5000/api/cart/${cartId}`, {method: "DELETE"});    
+            await fetch(`https://api.learningjournal.space/api/cart/${cartId}`, {method: "DELETE"});    
             fetchCart();
             alert("Gift removed from cart successfully!");
         }catch(error){
@@ -63,7 +63,7 @@ const Cart = () => {
       }, [currentUser]);
     const handelReceiveGift = async (cartId) =>{
       try{
-        const response = await fetch(`http://localhost:5000/api/cart/receive/${cartId}`, {method: "POST"});
+        const response = await fetch(`https://api.learningjournal.space/api/cart/receive/${cartId}`, {method: "POST"});
         const data = await response.json();
         
         if(response.status === 200){
