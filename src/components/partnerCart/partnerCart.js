@@ -26,7 +26,7 @@ const PartnerCart = () => {
     const fetchPartnerCart = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/partner/cart/${currentUser.partner}`
+          `https://api.learningjournal.space/api/partner/cart/${currentUser.partner}`
         );
         const data = await response.json();
         setCartItems(data);
