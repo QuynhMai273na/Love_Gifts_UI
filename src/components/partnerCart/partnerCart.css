@@ -1,6 +1,8 @@
 .cart-page {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh; /* Đặt chiều cao tối thiểu là 100vh */
+    height: auto;      /* Chiều cao tự động dựa vào nội dung */
+    overflow: auto;     
     background-color: #FFF0F3;
     padding: 20px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

@@ -1,7 +1,10 @@
 .allTasks {
-    background-color: #FFF0F3;
     width: 100%;
-    height: fit-content;
+    min-height: 100vh; /* Đặt chiều cao tối thiểu là 100vh */
+    height: auto;      /* Chiều cao tự động dựa vào nội dung */
+    overflow: auto;     
+    background-color: #FFF0F3;
+    /* height: fit-content; */
     display: flex;
     justify-content: center;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
