@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import "./gift.css";
+import API_BASE_URL from "../../config/api";
 
 const Gift = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -29,7 +30,7 @@ const Gift = () => {
 
   const fetchGifts = async () => {
     try {
-      const response = await fetch("https://api.learningjournal.space/api/gift");
+      const response = await fetch(`${API_BASE_URL}/api/gift`);
       const data = await response.json();
       setGifts(data);
     } catch (error) {
@@ -45,7 +46,7 @@ const Gift = () => {
     }
 
     try {
-      await fetch("https://api.learningjournal.space/api/cart/add", {
+      await fetch(`${API_BASE_URL}/api/cart/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

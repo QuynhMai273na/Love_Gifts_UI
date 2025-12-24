@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Button } from "react-bootstrap";
 import "./partnerCart.css";
+import API_BASE_URL from "../../config/api";
 
 const PartnerCart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -26,7 +27,7 @@ const PartnerCart = () => {
     const fetchPartnerCart = async () => {
       try {
         const response = await fetch(
-          `https://api.learningjournal.space/api/partner/cart/${currentUser.partner}`
+          `${API_BASE_URL}/api/partner/cart/${currentUser.partner}`
         );
         const data = await response.json();
         setCartItems(data);

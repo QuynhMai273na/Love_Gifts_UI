@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import "./tasks.css";
 import taskicon from "./taskicon.png";
 import {jwtDecode} from "jwt-decode";
+import API_BASE_URL from "../../config/api";
 const Tasks = () => {
 
     const [tasks, setTasks] = useState([]);
@@ -32,7 +33,7 @@ const Tasks = () => {
 
     const fetchTasks = async () => {
         try {
-            const response = await fetch("https://api.learningjournal.space/api/task");
+            const response = await fetch(`${API_BASE_URL}/api/task`);
             const data = await response.json();
             setTasks(data);
         } catch (error) {
@@ -45,7 +46,7 @@ const Tasks = () => {
         }
 
         try {
-            const response = await fetch("https://api.learningjournal.space/api/usertask/add", {
+            const response = await fetch(`${API_BASE_URL}/api/usertask/add`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

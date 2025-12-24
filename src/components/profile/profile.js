@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Form, Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import "./profile.css";
+import API_BASE_URL from "../../config/api";
 const Profile = () => {
 
     const [userName, setUserName] = useState("");
@@ -35,7 +36,7 @@ const Profile = () => {
         const userId = userObject.id;
 
         try {
-            const response = await fetch(`https://api.learningjournal.space/api/user/${userId}`);
+            const response = await fetch(`${API_BASE_URL}/api/user/${userId}`);
             const data = await response.json();
             setPoint(data.point);
             setPartner(data.partner);
@@ -60,7 +61,7 @@ const Profile = () => {
         const partnerEmail = userPartnerTmp;
         console.log(partnerEmail);
         try {
-            const response = await fetch(`https://api.learningjournal.space/api/user/partner/${userId}`,{
+            const response = await fetch(`${API_BASE_URL}/api/user/partner/${userId}`,{
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",

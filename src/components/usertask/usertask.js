@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./usertask.css";
+import API_BASE_URL from "../../config/api";
 const UserTask = () => {
   const [usertasks, setUsertasks] = useState([]);
   const [completedTasks, setComplete]=useState([]);
@@ -35,7 +36,7 @@ const UserTask = () => {
   const getUserPoint = async () => {
     // const userId = currentUser.id;
     try {
-      const response = await fetch(`https://api.learningjournal.space/api/user/${userId}`);
+      const response = await fetch(`${API_BASE_URL}/api/user/${userId}`);
       const data = await response.json();
       setPoint(data.point);
     } catch (error) {
@@ -48,7 +49,7 @@ const UserTask = () => {
 
     try {
       const response = await fetch(
-        `https://api.learningjournal.space/api/usertask/${userId}`
+        `${API_BASE_URL}/api/usertask/${userId}`
       );
       const data = await response.json();
       setUsertasks(data);
@@ -63,7 +64,7 @@ const UserTask = () => {
   const handleCompleteTask = async (usertaskId) => {
     try {
       const response = await fetch(
-        `https://api.learningjournal.space/api/usertask/complete/${usertaskId}`,
+        `${API_BASE_URL}/api/usertask/complete/${usertaskId}`,
         {
           method: "PUT",
           headers: {

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Form, Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import "./register.css";
+import API_BASE_URL from "../../config/api";
 
 const Register = () => {
 
@@ -30,7 +31,7 @@ const Register = () => {
         }
 
         try {
-            const response= await fetch("https://api.learningjournal.space/api/user", {
+            const response= await fetch(`${API_BASE_URL}/api/user`, {
                 method:"POST",
                 headers: {
                     "Content-Type": "application/json",

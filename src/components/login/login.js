@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Form, Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import "./login.css"
+import API_BASE_URL from "../../config/api";
 const Login = () => {
 
     const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ const Login = () => {
         }
         
         try {
-            const response = await fetch("https://api.learningjournal.space/api/user/login", {
+            const response = await fetch(`${API_BASE_URL}/api/user/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

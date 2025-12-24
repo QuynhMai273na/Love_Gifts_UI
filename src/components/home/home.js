@@ -6,6 +6,7 @@ import "./home.css";
 import boy from "./boy.png";
 import girl from "./girl.png";
 import heart from "./heart.png";
+import API_BASE_URL from "../../config/api";
 
 const Home = () => {
 
@@ -20,7 +21,7 @@ const Home = () => {
         const userId = userObject.id;
         
         try {
-            const response = await fetch(`https://api.learningjournal.space/api/user/${userId}`);
+            const response = await fetch(`${API_BASE_URL}/api/user/${userId}`);
             const data = await response.json();
             setPoint(data.point);
         } catch (error) {

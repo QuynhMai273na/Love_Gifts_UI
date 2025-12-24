@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, ListGroup } from "react-bootstrap";
 import "./partnerTasks.css";
+import API_BASE_URL from "../../config/api";
 
 const PartnerTasks = () => {
   const [partnerTasks, setTasks] = useState([]);
@@ -28,7 +29,7 @@ const PartnerTasks = () => {
   const fetchPartnerTasks = async () => {
     try {
       const response = await fetch(
-        `https://api.learningjournal.space/api/partner/tasks/${currentUser.partner}`
+        `${API_BASE_URL}/api/partner/tasks/${currentUser.partner}`
       );
       const data = await response.json();
       console.log(data);
